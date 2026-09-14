@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Sistema de Gestión de Cursos</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div id="panel-usuario">
+    <header>
+      <p>Bienvenido, <span id="nombre-usuario"></span> (<span id="rol-usuario"></span>)</p>
+      <button id="btn-logout">Cerrar sesión</button>
+    </header>
+
+    <section id="seccion-admin" style="display:none;">
+      <h2>Gestión de cursos</h2>
+      <form id="form-curso">
+        <input type="text" id="nombre-curso" placeholder="Nombre del curso" required>
+        <button type="submit">Crear curso</button>
+      </form>
+      <table>
+        <thead><tr><th>ID</th><th>Nombre</th><th>Docente</th></tr></thead>
+        <tbody id="tabla-cursos"></tbody>
+      </table>
+    </section>
+  </div>
+  <script src="js/main.js"></script>
+</body>
+</html>
