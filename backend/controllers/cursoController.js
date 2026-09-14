@@ -33,4 +33,35 @@ async function listarCursos(req, res) {
   }
 }
 
-module.exports = { crearCurso, listarCursos };
+async function misCursos(req, res) {
+  const docenteId = req.usuario.id;
+  try {
+    const resultado = await pool.query(
+      'SELECT id, nombre FROM cursos WHERE docente_id = $1 ORDER BY id',
+      [docenteId]
+    );
+    res.json(resultado.rows);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Error del servidor al consultar sus cursos.' });
+  }
+}
+
+async function estudiantesDeCurso(req, res) {
+  const { id } = req.params;
+  try {
+    const resultado = await pool.query(`
+      SELECT u.id, u.nombre, u.correo
+      FROM inscripciones i
+      JOIN usuarios u ON u.id = i.estudiante_id
+      WHERE i.curso_id = $1
+      ORDER BY u.nombre
+    `, [id]);
+    res.json(resultado.rows);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Error del servidor al consultar los estudiantes del curso.' });
+  }
+}
+
+module.exports = { crearCurso, listarCursos, misCursos, estudiantesDeCurso };

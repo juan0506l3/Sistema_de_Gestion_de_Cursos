@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel administrador · Gestión de Cursos</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <header class="encabezado">
+    <div class="marca">
+      <span class="marca-punto"></span>
+      <h1>Gestión de Cursos</h1>
+    </div>
+    <div class="usuario-sesion">
+      <p>Bienvenido, <strong id="nombre-usuario"></strong> <span class="etiqueta" id="rol-usuario"></span></p>
+      <button id="btn-logout" class="boton boton-secundario">Cerrar sesión</button>
+    </div>
+  </header>
+
+  <main class="contenedor">
+    <section class="tarjeta">
+      <h2>Crear curso</h2>
+      <form id="form-curso" class="formulario formulario-linea">
+        <input type="text" id="nombre-curso" placeholder="Nombre del curso" required>
+        <button type="submit" class="boton boton-primario">Crear curso</button>
+      </form>
+      <p id="mensaje-curso" class="mensaje"></p>
+
+      <table class="tabla">
+        <thead>
+          <tr><th>ID</th><th>Nombre</th><th>Docente</th></tr>
+        </thead>
+        <tbody id="tabla-cursos"></tbody>
+      </table>
+    </section>
+
+    <section class="tarjeta">
+      <h2>Registrar estudiante</h2>
+      <form id="form-estudiante" class="formulario formulario-grilla">
+        <input type="text" id="nombre-estudiante" placeholder="Nombre completo" required>
+        <input type="email" id="correo-estudiante" placeholder="Correo" required>
+        <input type="password" id="password-estudiante" placeholder="Contraseña" required>
+        <button type="submit" class="boton boton-primario">Registrar estudiante</button>
+      </form>
+      <p id="mensaje-estudiante" class="mensaje"></p>
+
+      <table class="tabla">
+        <thead>
+          <tr><th>ID</th><th>Nombre</th><th>Correo</th></tr>
+        </thead>
+        <tbody id="tabla-estudiantes"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="../js/common.js"></script>
+  <script src="../js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,352 @@
+/* =========================================================
+   Sistema de Gestión de Cursos — hoja de estilos
+   ========================================================= */
+
+:root {
+  --azul-primario: #0f4c81;
+  --azul-oscuro: #0a3457;
+  --azul-claro: #2a9df4;
+  --gris-fondo: #f4f6f9;
+  --gris-borde: #dfe4ea;
+  --gris-texto: #4a5568;
+  --texto-oscuro: #1a202c;
+  --blanco: #ffffff;
+  --verde-exito: #1f9d55;
+  --rojo-error: #c0392b;
+  --radio: 10px;
+  --sombra: 0 2px 10px rgba(15, 76, 129, 0.08);
+  --sombra-fuerte: 0 8px 24px rgba(15, 76, 129, 0.15);
+  --fuente: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--fuente);
+  background: var(--gris-fondo);
+  color: var(--texto-oscuro);
+  line-height: 1.5;
+}
+
+h1, h2, h3 {
+  color: var(--azul-oscuro);
+  margin: 0;
+}
+
+/* ---------- Encabezado de las páginas internas ---------- */
+
+.encabezado {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--blanco);
+  padding: 18px 32px;
+  border-bottom: 1px solid var(--gris-borde);
+  box-shadow: var(--sombra);
+}
+
+.marca {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.marca-punto {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--azul-claro);
+  display: inline-block;
+}
+
+.marca h1 {
+  font-size: 1.25rem;
+}
+
+.usuario-sesion {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.usuario-sesion p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--gris-texto);
+}
+
+.etiqueta {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: rgba(42, 157, 244, 0.12);
+  color: var(--azul-primario);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+/* ---------- Contenedores ---------- */
+
+.contenedor {
+  max-width: 1000px;
+  margin: 32px auto;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.contenedor-centrado {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.pagina-login {
+  background: linear-gradient(135deg, var(--azul-oscuro), var(--azul-primario));
+}
+
+/* ---------- Tarjetas ---------- */
+
+.tarjeta {
+  background: var(--blanco);
+  border-radius: var(--radio);
+  padding: 28px;
+  box-shadow: var(--sombra);
+  border: 1px solid var(--gris-borde);
+}
+
+.tarjeta h2 {
+  font-size: 1.15rem;
+  margin-bottom: 18px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--gris-fondo);
+}
+
+.tarjeta-login {
+  width: 100%;
+  max-width: 420px;
+  box-shadow: var(--sombra-fuerte);
+  padding: 36px;
+}
+
+.tarjeta-login .marca {
+  justify-content: center;
+  margin-bottom: 4px;
+}
+
+.subtitulo {
+  text-align: center;
+  color: var(--gris-texto);
+  margin: 0 0 24px;
+  font-size: 0.9rem;
+}
+
+/* ---------- Formularios ---------- */
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.formulario-linea {
+  flex-direction: row;
+  align-items: stretch;
+}
+
+.formulario-grilla {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  align-items: end;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.campo label {
+  font-size: 0.85rem;
+  color: var(--gris-texto);
+  font-weight: 600;
+}
+
+input, select, button {
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+select {
+  padding: 11px 14px;
+  border: 1px solid var(--gris-borde);
+  border-radius: 8px;
+  background: var(--gris-fondo);
+  color: var(--texto-oscuro);
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  width: 100%;
+}
+
+input:focus, select:focus {
+  border-color: var(--azul-claro);
+  box-shadow: 0 0 0 3px rgba(42, 157, 244, 0.15);
+  background: var(--blanco);
+}
+
+/* ---------- Botones ---------- */
+
+.boton {
+  padding: 11px 20px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.1s ease, background 0.15s ease;
+  white-space: nowrap;
+}
+
+.boton:active {
+  transform: scale(0.98);
+}
+
+.boton-primario {
+  background: var(--azul-primario);
+  color: var(--blanco);
+}
+
+.boton-primario:hover {
+  background: var(--azul-oscuro);
+}
+
+.boton-secundario {
+  background: var(--gris-fondo);
+  color: var(--azul-oscuro);
+  border: 1px solid var(--gris-borde);
+}
+
+.boton-secundario:hover {
+  background: var(--gris-borde);
+}
+
+.boton-ancho {
+  width: 100%;
+}
+
+/* ---------- Mensajes ---------- */
+
+.mensaje {
+  min-height: 20px;
+  font-size: 0.88rem;
+  margin: 4px 0 0;
+}
+
+.mensaje-error {
+  color: var(--rojo-error);
+  font-size: 0.85rem;
+  min-height: 18px;
+  margin: 6px 0 0;
+}
+
+.mensaje-exito {
+  color: var(--verde-exito);
+  font-size: 0.88rem;
+  margin: 4px 0 0;
+}
+
+/* ---------- Tablas ---------- */
+
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 18px;
+  font-size: 0.92rem;
+}
+
+.tabla th, .tabla td {
+  text-align: left;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--gris-borde);
+}
+
+.tabla th {
+  background: var(--gris-fondo);
+  color: var(--azul-oscuro);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+}
+
+.tabla tbody tr:hover {
+  background: rgba(42, 157, 244, 0.05);
+}
+
+/* ---------- Listas simples ---------- */
+
+.lista-simple {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.lista-simple li {
+  padding: 12px 14px;
+  background: var(--gris-fondo);
+  border-radius: 8px;
+  border: 1px solid var(--gris-borde);
+}
+
+/* ---------- Ayuda credenciales (login) ---------- */
+
+.ayuda-credenciales {
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid var(--gris-borde);
+  font-size: 0.8rem;
+  color: var(--gris-texto);
+}
+
+.ayuda-credenciales p {
+  margin: 0 0 8px;
+  font-weight: 600;
+}
+
+.ayuda-credenciales ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.ayuda-credenciales li {
+  margin-bottom: 4px;
+}
+
+/* ---------- Responsivo ---------- */
+
+@media (max-width: 640px) {
+  .encabezado {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .formulario-linea {
+    flex-direction: column;
+  }
+}
